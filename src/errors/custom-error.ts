@@ -4,6 +4,8 @@ export abstract class CustomError extends Error {
   constructor(message: string) {
     super(message);
 
+    console.log("ERROR!");
+
     Object.setPrototypeOf(this, CustomError.prototype);
   }
 
