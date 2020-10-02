@@ -1,3 +1,3 @@
 # common
 
-Common module with utility functions and services shared across repositories.
+Utility package with common functions and services that can be accessed and shared across different services.
