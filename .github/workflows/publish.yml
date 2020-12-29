@@ -10,3 +10,5 @@ jobs:
         uses: actions/checkout@v1
       - name: 'Updated Package Version and Publish'
         run: npm version patch && npm publish
+        env:
+          CR_PAT: $ {{ secrets.CR_PAT }}
