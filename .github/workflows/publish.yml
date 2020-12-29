@@ -13,7 +13,9 @@ jobs:
         with:
           node-version: '12.x'
           registry-url: 'https://npm.pkg.github.com'
-      - name: 'Updated Package Version and Publish'
-        run: npm version patch && npm publish
+      - name: 'Update GitHub Package Version'
+        run: npm version patch
+      - name: 'Publish GitHub Package'
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: $ {{ secrets.GH_PAT }}
