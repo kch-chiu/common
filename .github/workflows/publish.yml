@@ -13,8 +13,6 @@ jobs:
         with:
           node-version: '12.x'
           registry-url: 'https://npm.pkg.github.com'
-      - name: 'Update GitHub Package Version'
-        run: npm version patch
       - name: 'Publish GitHub Package'
         run: npm publish
         env:
