@@ -19,6 +19,8 @@ jobs:
           git config user.email "chiu.kelvinch@gmail.com"
           git config user.name "kch-chiu"
       - name: 'Publish GitHub Package'
-        run: npm run pub
+        run: |
+          npm version patch
+          npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
