@@ -14,11 +14,7 @@ jobs:
           node-version: '12.x'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@kch-chiu'
-      - name: 'Automated Version Bump'
-        uses: 'phips28/gh-action-bump-version@master'
-      - name: 'Checkout with new version tag'
-        uses: actions/checkout@master
-      - name: 'Publish Version Bump'
-        run: npm publish
+      - name: 'Bump Version and Publish'
+        run: npm version patch && npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
