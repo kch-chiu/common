@@ -22,7 +22,8 @@ jobs:
           npm version patch -m "Version %s [auto commit message]"
           npm publish
           git push gh-origin HEAD:master --tags
-          git fetch origin HEAD:master
+          git fetch gh-origin HEAD:master
+          git checkout HEAD:master
           git pull origin master
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
