@@ -1,6 +1,9 @@
 name: Publish GitHub Package
 
-on: push
+on:
+  pull_request:
+    types:
+      - closed
 
 jobs:
   publish:
@@ -17,13 +20,12 @@ jobs:
         run: |
           git config user.name $GITHUB_ACTOR
           git config user.email gh-actions-${GITHUB_ACTOR}@github.com
-          git config pull.ff only
-          git remote add gh-origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          git config pull.rebase false
           echo "//npm.pkg.github.com/:_authToken=$NODE_AUTH_TOKEN" >> ~/.npmrc
           npm version patch -m "Version %s [auto commit message]"
           npm publish
-          git push gh-origin HEAD:master --tags
-          git checkout origin/master
-          git pull
+          git push master HEAD:master --tags
+          git checkout dev
+          git pull master
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
