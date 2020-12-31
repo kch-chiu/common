@@ -23,6 +23,6 @@ jobs:
           npm publish
           git push gh-origin HEAD:master --tags
           git fetch --all
-          git reset --hard origin/master
+          git pull
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
