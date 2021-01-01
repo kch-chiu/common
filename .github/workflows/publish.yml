@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: 'Checkout'
         uses: actions/checkout@master
+        with:
+          fetch-depth: 0
       - name: 'Setup Node'
         uses: actions/setup-node@v1
         with:
@@ -26,7 +28,7 @@ jobs:
           npm version patch -m "Version %s [auto commit message]"
           npm publish
           git push gh-origin HEAD:master --tags
-          git checkout origin/dev
+          git checkout dev
           git pull gh-origin
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
