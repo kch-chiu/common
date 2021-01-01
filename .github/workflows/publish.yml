@@ -24,8 +24,8 @@ jobs:
           echo "//npm.pkg.github.com/:_authToken=$NODE_AUTH_TOKEN" >> ~/.npmrc
           npm version patch -m "Version %s [auto commit message]"
           npm publish
-          git push master HEAD:master --tags
+          git push origin/master HEAD:master --tags
           git checkout dev
-          git pull master
+          git pull origin/master
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
