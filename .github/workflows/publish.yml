@@ -1,9 +1,6 @@
 name: Publish GitHub Package
 
-on:
-  pull_request:
-    types:
-      - closed
+on: push
 
 jobs:
   publish:
