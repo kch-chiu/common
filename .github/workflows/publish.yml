@@ -28,7 +28,7 @@ jobs:
           npm version patch -m "Version %s [auto commit message]"
           npm publish
           git push gh-origin HEAD:master --tags
-          git branch -r
+          git branch
           git checkout origin/dev
           git pull origin master
         env:
