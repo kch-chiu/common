@@ -2,14 +2,15 @@
   "name": "@kch-chiu/common",
   "version": "1.0.49",
   "description": "",
-  "main": "./build/index.js",
-  "types": "./build/index.d.ts",
+  "main": "./lib/index.js",
+  "module": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "files": [
-    "build/**/*"
+    "lib/"
   ],
   "scripts": {
-    "clean": "del ./build/*",
-    "build": "npm run clean && tsc"
+    "clean": "del ./lib/*",
+    "prepublishOnly": "npm run clean && tsc"
   },
   "keywords": [],
   "author": "",
