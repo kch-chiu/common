@@ -22,7 +22,8 @@ export const currentUser = async (
   res: NextApiResponse,
   next: NextFunction
 ) => {
-  console.log(`req is: ${JSON.stringify(req)}`);
+  console.log(`req is: ${req}`);
+  console.log(`req cookies are: ${req.cookies}`);
   // const sessionCookie = req.cookies['__Secure-next-auth.session-token'];
   // console.log(`sessionCookie is: ${sessionCookie}`);
   if (req) {
