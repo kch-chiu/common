@@ -29,7 +29,6 @@ export const currentUser = async (
       "__Secure-next-auth.session-token": req.headers.authorization as string,
     };
   }
-  // Request from client
   const token = await jwt.getToken({ req, secret });
   if (token) {
     console.log("JSON Web Token", JSON.stringify(token, null, 2));
