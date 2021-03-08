@@ -22,15 +22,14 @@ export const currentUser = async (
   res: NextApiResponse,
   next: NextFunction
 ) => {
-  console.log(`req is: ${req}`);
-  console.log(`req cookies are: ${req.cookies}`);
+  const token = await jwt.getToken({ req, secret })
   // const sessionCookie = req.cookies['__Secure-next-auth.session-token'];
   // console.log(`sessionCookie is: ${sessionCookie}`);
-  if (req) {
-    try {
-      const payload = (await jwt.getToken({ req, secret })) as UserPayload;
-      req.currentUser = payload;
-    } catch (err) {}
+  if (token) {
+    console.log('JSON Web Token', JSON.stringify(token, null, 2));
+    // const payload = (await jwt.getToken({ req, secret })) as UserPayload;
+    req.currentUser = token;
+    
   }
 
   next();
