@@ -23,11 +23,11 @@ export const currentUser = async (
   next: NextFunction
 ) => {
   // Request not from client
-  if (!req.cookies) { 
+  if (!req.cookies) {
     if (!req.headers?.authorization) return next();
     req.cookies = {
-      '__Secure-next-auth.session-token': req.headers.authorization as string
-    }
+      "__Secure-next-auth.session-token": req.headers.authorization as string,
+    };
   }
   // Request from client
   const token = await jwt.getToken({ req, secret });
