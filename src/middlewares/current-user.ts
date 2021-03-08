@@ -22,7 +22,9 @@ export const currentUser = async (
   res: NextApiResponse,
   next: NextFunction
 ) => {
-  if (!req.currentUser) {
+  const sessionCookie = req.cookies['__Secure-next-auth.session-token'];
+  console.log(`sessionCookie is: ${sessionCookie}`);
+  if (sessionCookie) {
     try {
       const payload = (await jwt.getToken({ req, secret })) as UserPayload;
       req.currentUser = payload;
