@@ -7,11 +7,9 @@ interface UserPayload {
   email: string;
 }
 
-declare global {
-  namespace NextAuth {
-    interface NextApiRequest {
-      currentUser?: UserPayload;
-    }
+declare module "next-auth" {
+  interface NextApiRequest {
+    currentUser?: object;
   }
 }
 
