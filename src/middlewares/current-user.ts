@@ -25,12 +25,8 @@ export const currentUser = async (
   res: NextApiResponse,
   next: NextFunction
 ) => {
-  console.log(`req: ${req}`);
-  console.log(`req.cookies: ${req.cookies}`);
-  // Request not from client
-  if (!req.cookies) return next();
-  // Request from client
   const token = await jwt.getToken({ req, secret });
+  // Request from client
   if (token) {
     console.log("JSON Web Token", JSON.stringify(token, null, 2));
     req.currentUser = token;
