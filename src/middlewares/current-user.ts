@@ -25,6 +25,8 @@ export const currentUser = async (
   res: NextApiResponse,
   next: NextFunction
 ) => {
+  console.log(`req: ${req}`);
+  console.log(`req.cookies: ${req.cookies}`);
   // Request not from client
   if (!req.cookies) return next();
   // Request from client
