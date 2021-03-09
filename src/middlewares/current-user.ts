@@ -1,6 +1,11 @@
 import { NextFunction } from "express";
 import jwt, { JWTDecodeParams } from "next-auth/jwt";
-import { NextApiRequest, NextApiResponse } from "next-auth/_utils";
+import {
+  GenericObject,
+  NextApiRequest,
+  NextApiResponse,
+} from "next-auth/_utils";
+import { IncomingMessage } from "http";
 
 interface UserPayload {
   id: string;
@@ -8,7 +13,7 @@ interface UserPayload {
 }
 
 declare module "next-auth/_utils" {
-  interface NextApiRequest {
+  interface NextApiRequest extends IncomingMessage, GenericObject {
     currentUser?: object;
   }
 }
