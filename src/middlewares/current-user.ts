@@ -7,7 +7,7 @@ interface UserPayload {
   email: string;
 }
 
-declare module "next-auth" {
+declare module "next-auth/_utils" {
   interface NextApiRequest {
     currentUser?: object;
   }
