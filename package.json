@@ -1,6 +1,6 @@
 {
   "name": "@kch-chiu/common",
-  "version": "1.0.69",
+  "version": "1.0.70",
   "description": "",
   "main": "./lib/index.js",
   "module": "./lib/index.js",
