@@ -13,7 +13,7 @@ interface UserPayload {
 }
 
 declare module "next-auth/_utils" {
-  export interface NextApiRequest extends IncomingMessage, GenericObject {
+  interface NextApiRequest extends IncomingMessage, GenericObject {
     currentUser?: object;
   }
 }

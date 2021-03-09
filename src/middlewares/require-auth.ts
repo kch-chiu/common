@@ -1,9 +1,10 @@
-import { Request, Response, NextFunction } from "express";
+import { NextFunction } from "express";
+import { NextApiRequest, NextApiResponse } from "next-auth/_utils";
 import { NotAuthorizedError } from "../errors/not-authorized-error";
 
 export const requireAuth = (
-  req: Request,
-  res: Response,
+  req: NextApiRequest,
+  res: NextApiResponse,
   next: NextFunction
 ) => {
   if (!req.currentUser) {
