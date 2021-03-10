@@ -25,11 +25,15 @@ export const currentUser = async (
   res: NextApiResponse,
   next: NextFunction
 ) => {
-  const token = await jwt.getToken({ req, secret });
-  // Request from client
-  if (token) {
-    console.log("JSON Web Token", JSON.stringify(token, null, 2));
-    req.currentUser = token;
+  try {
+    const token = await jwt.getToken({ req, secret });
+    // Request from client
+    if (token) {
+      console.log("JSON Web Token", JSON.stringify(token, null, 2));
+      req.currentUser = token;
+    }
+  } catch (err) {
+    console.error(err);
   }
 
   next();
